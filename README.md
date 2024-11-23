@@ -66,3 +66,17 @@ provider "aws" {
 7. Executar o comando `terraform destroy`para destruir o que foi aplicado com o plano. 
 
 8. É possível criar um plano para destruir, utilizando o comando: `terraform plan -destroy -out NOME_DO_PLAN`. Depois é só executar o comando `terraform apply "NOME_DO_PLAN"`. 
+
+### Terrafor - Backend
+
+1. Adicionar ao arquivo `provider.tf`: 
+```
+terraform {
+  backend "s3" {
+    bucket = "mybucket"
+    key    = "path/to/my/key"
+    region = "us-east-1"
+  }
+}
+```
+###### Dados obtido em: [Terraform Registry: S3](https://developer.hashicorp.com/terraform/language/backend/s3#example-configuration)
